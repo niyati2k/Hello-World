@@ -1,0 +1,48 @@
+***CUT***
+A cut of a connected graph is a minimal set of edges whose removal separate the graph into two components (pieces).
+The minimal cut property says that if one of the edges of the cut has weight smaller than any other edge in the cut
+then it is in the MST
+
+To see this, assume that there is an MST not containing the edge.
+If we add the edge to the MST we get a cycle that crosses the cut at least twice,
+so we can break the cycle by removing the other edge from the MST,
+thereby making a new tree with smaller weight, thereby contradicting the minimality of the MST.
+
+
+
+*******Cycle Property:
+For any cycle C in the graph, if the weight of an edge e of C is larger than the weights of all other edges of C,
+then this edge cannot belong to an MST.
+
+Proof: Assume the contrary, i.e. that e belongs to an MST T1. Then deleting e will break T1 into two subtrees
+with the two ends of e in different subtrees. The remainder of C reconnects the subtrees, hence there is an edge f of C with ends
+in different subtrees, i.e., it reconnects the subtrees into a tree T2 with weight less than that of T1,
+because the weight of f is less than the weight of e
+
+
+****Prim's proof
+https://cp-algorithms.com/graph/mst_prim.html
+
+
+Time complexity-O(v^2) if trivial implementation to find min key
+               -O(ElogV) if binary heap (priority queue) to find min edge
+               
+               
+               
+*****Treap
+In addition, we assign x.priorityx.priority, which is a random number chosen independently for each node.
+We assume that all priorities are distinct and also that all keys are distinct.
+The nodes of the treap are ordered so that the keys obey the binary-search-tree property and the priorities obey
+the min-heap order property:
+
+Treap is a Balanced Binary Search Tree, but not guaranteed to have height as O(Log n).
+The idea is to use Randomization and Binary Heap property to maintain balance with high probability.
+The expected time complexity of search, insert and delete is O(Log n).               
+ A treap is the simplest of all binary search trees.
+Each node is given a numeric priority and implementation is non recursive.     
+
+
+******
+               
+               
+               
